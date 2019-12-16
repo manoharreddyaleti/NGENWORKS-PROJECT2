@@ -1,0 +1,15 @@
+<h1>User Registration</h1>
+<form #userRegister = "ngForm" (ngSubmit) = "onClickSubmit(userRegister.value)" >
+    <div class="form-group">
+        <label for="userEmail">Email address</label>
+        <input type="email" class="form-control" id="userEmail" [(ngModel)]="email" name="userEmail" placeholder="Enter email">
+        
+      </div>
+      <div class="form-group">
+        <label for="userPassword">Password</label>
+        <input type="password" class="form-control" id="userPassword" [(ngModel)]="password" name="userPassword" placeholder="Password">
+      </div>
+      <button type="submit" class="btn btn-primary">Submit</button>
+ </form>
+ <small *ngIf="showAlert" class="form-text text-success ">Successfully registered.</small>
+        

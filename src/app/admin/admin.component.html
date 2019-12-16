@@ -1,0 +1,42 @@
+<h1>Admin Page</h1>
+<div class="row" style="justify-content: right;">
+    <a (click)="onNotification()" class="notification">
+        <span>Notifications</span>
+        <span class="badge">{{usersLength}}</span>
+      </a>
+    
+</div>
+
+  
+<div  class="row">
+    <div *ngIf="showUserDetails">
+        <h2>User Details</h2>            
+        <table class="table table-striped">
+          <thead *ngIf="usersLength!=0">
+            <tr>
+              <th>Email</th>
+              <th>Password</th>
+              <th>Accept/Reject</th>
+            </tr>
+          </thead>
+          <tbody *ngIf="usersLength!=0">
+            <tr *ngFor="let user of userDetails;let ind=index">
+              <td>{{user.userEmail}}</td>
+              <td>{{user.userPassword}}</td>
+                <td><button type="btn" class="btn btn-success" (click)="acceptReject(ind)">Accept</button>
+                    <button type="btn" class="btn btn-danger ml-3" (click)="acceptReject(ind)">Reject</button>
+                </td>
+            </tr>
+           
+          </tbody>
+          <tbody>
+            <tr *ngIf="usersLength===0">
+                <td>None</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    
+    
+</div>
+
